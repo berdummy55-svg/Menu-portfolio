@@ -1,6 +1,13 @@
 // Pastikan halaman selalu tampil (tidak stuck di fade-out)
 document.body.classList.remove("fade-out");
 
+if (sessionStorage.getItem('resetProjectCard') === 'true') {
+  // Hapus class dari semua project card
+  document.querySelectorAll('a.project-card').forEach(el => el.classList.remove('clicked'));
+  // Hapus flag
+  sessionStorage.removeItem('resetProjectCard');
+}
+
 // Toggle Menu
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
@@ -116,23 +123,14 @@ form.addEventListener("submit", function(event) {
 
 // ✅ PASTIKAN HANYA ADA SATU BLOK INI
 document.addEventListener("click", function(e) {
-  const clicked = e.target.closest("a.back-area, a.project-card");
+  const clicked = e.target.closest("a.project-card");
   if (clicked) {
-    e.preventDefault(); 
-    e.stopPropagation();
+    e.preventDefault();
+    // Tandai bahwa halaman harus mereset saat kembali
+    sessionStorage.setItem('resetProjectCard', 'true');
     clicked.classList.add("clicked");
     setTimeout(() => {
       window.location.href = clicked.getAttribute('href');
     }, 300);
-  }
-});
-
-// Reset efek "clicked" saat halaman dimuat dari bfcache
-window.addEventListener('pageshow', (event) => {
-  if (event.persisted) {
-    // Hapus class 'clicked' dari semua project card & back area
-    document.querySelectorAll('a.project-card, a.back-area').forEach(el => {
-      el.classList.remove('clicked');
-    });
   }
 });
