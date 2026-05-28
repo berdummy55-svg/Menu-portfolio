@@ -387,14 +387,19 @@ transition: all 0.3s ease;
   border-radius: 15px;
 }
 /* Hover */
-/*@media (hover: hover) and and (pointer: fine) { 
+@media (hover: hover) { 
 .project-card:hover {
   background: transparent;
   border-color: #2563eb;
   color: #2563eb;
   transform: translateY(-6px) scale(1.02);
 }
-}*/
+   .project-card:focus{
+       background: #2563eb;
+       border-color: #0b1120;
+       color: #ffffff;
+   } 
+}
 /*.project-card.active {
   background: transparent;
   border-color: #2563eb;
