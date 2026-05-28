@@ -397,12 +397,11 @@ transition: all 0.3s ease;
 }
 
 @media (hover: none) and (pointer: coarse) {
-.project-card.clicked {
+.project-card.active {
   background: transparent;
-  border: 2px solid #2563eb;
+  border-color: #2563eb;
   color: #2563eb;
-  box-shadow: 0 0 12px rgba(37,99,235,0.6);
-    animation: clickAnim 0.3s ease;
+  transform: translateY(-6px) scale(1.02);
 }
 }​
 /* Saat diklik → outline */
