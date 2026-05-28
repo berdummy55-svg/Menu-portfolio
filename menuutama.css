@@ -395,14 +395,11 @@ transition: all 0.3s ease;
   transform: translateY(-6px) scale(1.02);
 }
 }
-
-@media (hover: none) and (pointer: coarse) {
 .project-card.active {
   background: transparent;
   border-color: #2563eb;
   color: #2563eb;
   transform: translateY(-6px) scale(1.02);
-}
 }​
 /* Saat diklik → outline */
 .project-card.clicked {
