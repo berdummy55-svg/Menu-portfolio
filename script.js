@@ -1,12 +1,6 @@
 // Pastikan halaman selalu tampil (tidak stuck di fade-out)
 document.body.classList.remove("fade-out");
 
-if (sessionStorage.getItem('resetProjectCard') === 'true') {
-  // Hapus class dari semua project card
-  document.querySelectorAll('a.project-card').forEach(el => el.classList.remove('clicked'));
-  // Hapus flag
-  sessionStorage.removeItem('resetProjectCard');
-}
 
 // Toggle Menu
 const menuToggle = document.getElementById("menu-toggle");
@@ -132,5 +126,22 @@ document.addEventListener("click", function(e) {
     setTimeout(() => {
       window.location.href = clicked.getAttribute('href');
     }, 300);
+  }
+});
+
+// ✅ Handle bfcache restore (tombol back/forward)
+window.addEventListener('pageshow', function(event) {
+  // Jika halaman dipulihkan dari cache, reset state
+  if (event.persisted) {
+    document.querySelectorAll('a.project-card').forEach(el => {
+      el.classList.remove('clicked');
+      el.style.transform = ''; // Reset inline transform jika ada
+    });
+  }
+  
+  // Juga reset flag sessionStorage jika ada
+  if (sessionStorage.getItem('resetProjectCard') === 'true') {
+    document.querySelectorAll('a.project-card').forEach(el => el.classList.remove('clicked'));
+    sessionStorage.removeItem('resetProjectCard');
   }
 });
