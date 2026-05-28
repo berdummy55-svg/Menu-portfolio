@@ -375,7 +375,6 @@ html {
 
 /* ===== PROJECT CARD BLUE STYLE ===== */
 .project-card {
-    will-change: transform;
 background: #2563eb;
 transition: all 0.3s ease;
   color: #ffffff;
@@ -398,18 +397,13 @@ transition: all 0.3s ease;
 }
 
 @media (hover: none) and (pointer: coarse) {
-  .project-card:hover {
-    background: #2563eb !important;
-    color: #ffffff !important;
-    border-color: #0b1120 !important;
-    transform: none !important;
-  }
-  .project-card:active {
-    background: transparent​;
-    transform: scale(0.98);
-    border-color: #0b1120;
-    color: #ffffff;
-  }
+.project-card.clicked {
+  background: transparent;
+  border: 2px solid #2563eb;
+  color: #2563eb;
+  box-shadow: 0 0 12px rgba(37,99,235,0.6);
+    animation: clickAnim 0.3s ease;
+}
 }​
 /* Saat diklik → outline */
 .project-card.clicked {
