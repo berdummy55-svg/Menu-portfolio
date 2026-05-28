@@ -375,6 +375,7 @@ html {
 
 /* ===== PROJECT CARD BLUE STYLE ===== */
 .project-card {
+    will-change: transform;
 background: #2563eb;
 transition: all 0.3s ease;
   color: #ffffff;
@@ -387,12 +388,29 @@ transition: all 0.3s ease;
   border-radius: 15px;
 }
 /* Hover */
+@media (hover: hover) and and (pointer: fine) { 
 .project-card:hover {
   background: transparent;
   border-color: #2563eb;
   color: #2563eb;
   transform: translateY(-6px) scale(1.02);
 }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .project-card:hover {
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border-color: #0b1120 !important;
+    transform: none !important;
+  }
+  .project-card:active {
+    background: transparent​;
+    transform: scale(0.98);
+    border-color: #0b1120;
+    color: #ffffff;
+  }
+}​
 /* Saat diklik → outline */
 .project-card.clicked {
   background: transparent;
