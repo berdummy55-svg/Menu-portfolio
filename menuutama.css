@@ -407,24 +407,3 @@ transition: all 0.3s ease;
   50% { transform: scale(0.8); }
   100% { transform: scale(1); }
 }
-
-/* Hover hanya untuk perangkat dengan kursor */
-@media (hover: hover) and (pointer: fine) {
-  .project-card:hover {
-    background: transparent;
-    border-color: #2563eb;
-    color: #2563eb;
-    transform: translateY(-6px) scale(1.02);
-  }
-}
-
-/* Di perangkat sentuh, gunakan :active saja */
-@media (hover: none) and (pointer: coarse) {
-  .project-card:active {
-    background: transparent;
-    border-color: #2563eb;
-    color: #2563eb;
-    transform: scale(0.98);
-    box-shadow: 0 0 8px rgba(37,99,235,0.4);
-  }
-}​
