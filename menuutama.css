@@ -231,12 +231,12 @@ html {
   }
   
  /* Arrow Animation */
-  .btn-primary .arrow {
+  .btn-primary.arrow {
     transition: 2s ease;
   }
 
   /* Shine Animation */
-  .btn-primary::before {
+  .btn-primary:before {
     content: "";
     position: absolute;
     width: 40px;
